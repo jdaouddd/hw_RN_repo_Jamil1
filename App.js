@@ -1,24 +1,22 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
-import Topbar from "./topbar";
-import TempConverter from "./tempConverter";
+import React from "react";
+import { NavigationContainer } from "@react-navigation/native";
+import { createStackNavigator } from "@react-navigation/stack";
+import CommandView from "./views/CommandView";
+import DefinitionView from "./views/DefinitionView";
+import { View } from "react-native";
 
-export default function App() {
+const Stack = createStackNavigator();
+
+const App = () => {
   return (
-    <View>
-     <Topbar title="TempConverter" />
-     <TempConverter />
-
-      <StatusBar hidden />
-    </View>
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName="CommandView">
+        <Stack.Screen name="CommandView" component={CommandView} options={{ title: "Rails Commands" }}/>
+        <Stack.Screen name="DefinitionView" component={DefinitionView}  options={({ route }) => ({ title: route.params.command })}/>
+      </Stack.Navigator>
+    </NavigationContainer>
   );
-}
+};
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+export default App;
+
