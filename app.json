@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "Jamil-railscards",
-    "slug": "Jamil-railscards",
+    "name": "BookManager",
+    "slug": "BookManager",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
