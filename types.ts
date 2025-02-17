@@ -1,30 +1,30 @@
-import { Book } from "/Users/lamamasri/BookManager/Models/Book";
+import { RouteProp } from "@react-navigation/native";
+export interface Repository {
+    id: number;
+    name: string;
+    full_name: string;
+    description: string;
+    stargazers_count: number;
+    html_url: string;
+    owner: {
+      login: string;
+      avatar_url: string;
+    };
+  }
 
-import { NativeStackScreenProps } from "@react-navigation/native-stack";
-export type RootStackParamList = {
-    LibraryView: undefined;
-    BookDetails: { book: Book };
+  export interface RepoContextType {
+    repositories: Repository[];
+    searchText: string;
+    setSearchText: (text: string) => void;
+  }
+
+
+  export type RootStackParamList = {
+    ReposView: undefined;
+    RepoDetails: { repository: Repository };
   };
-  
 
- 
-export type BookDetailsScreenProps = NativeStackScreenProps<
-RootStackParamList,
-"BookDetails"
->;
 
-export interface LibraryContextType {
-  books: Book[];
-  setBooks: React.Dispatch<React.SetStateAction<Book[]>>;
-  
-  addBookToLibrary: (
-    title: string,
-    author: string,
-    gender: string,
-    displayed: boolean
-  ) => void;
-  
-  getBooksFor: (author: string) => Book[];
-  getMaleAuthoredBooks: () => Book[];
-  getFemaleAuthoredBooks: () => Book[];
-}
+export type RepositoryDetailsScreenProps = {
+    route: RouteProp<RootStackParamList, "RepoDetails">;
+  };
