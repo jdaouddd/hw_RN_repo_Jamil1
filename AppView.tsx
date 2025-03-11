@@ -1,26 +1,18 @@
-import React from "react";
-import { NavigationContainer } from "@react-navigation/native";
-import { createStackNavigator } from "@react-navigation/stack";
-import ReposView from "./ReposView";
-import RepoDetailsView from "./RepoDetailsView";
-import { RepoProvider } from "../Controllers/RepoContext";
-import { RootStackParamList } from "../types";
-
-const Stack = createStackNavigator();
+import { StatusBar } from 'expo-status-bar';
+import { StyleSheet, Text, View } from 'react-native';
+import BrowserView from "./BrowserView";
 
 const AppView: React.FC = () => {
-  return (
-    <RepoProvider>
-      <NavigationContainer>
-        <Stack.Navigator screenOptions={{ headerTitleAlign: "center" }}>
-          <Stack.Screen name="ReposView" component={ReposView} options={{ title: "Repositories" }} />
-          <Stack.Screen name="RepoDetails" component={RepoDetailsView} options={{ title: "Repository Details" }} />
-        </Stack.Navigator>
-      </NavigationContainer>
-    </RepoProvider>
-  );
-};
+    return <BrowserView />;
+  };
+  
+  export default AppView;
 
-export default AppView;
-
-
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#fff',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+});
