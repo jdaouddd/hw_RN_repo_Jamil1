@@ -1,30 +1,14 @@
-import { RouteProp } from "@react-navigation/native";
-export interface Repository {
-    id: number;
-    name: string;
-    full_name: string;
-    description: string;
-    stargazers_count: number;
-    html_url: string;
-    owner: {
-      login: string;
-      avatar_url: string;
-    };
-  }
+import { StackNavigationProp } from "@react-navigation/stack";
 
-  export interface RepoContextType {
-    repositories: Repository[];
-    searchText: string;
-    setSearchText: (text: string) => void;
-  }
-
-
-  export type RootStackParamList = {
-    ReposView: undefined;
-    RepoDetails: { repository: Repository };
+export type RootStackParamList = {
+    Home: undefined;
+    Map: undefined;
   };
+  
 
+export type RootStackNavigationProp = StackNavigationProp<RootStackParamList>;
 
-export type RepositoryDetailsScreenProps = {
-    route: RouteProp<RootStackParamList, "RepoDetails">;
-  };
+export type Location = {
+  latitude: number;
+  longitude: number;
+};

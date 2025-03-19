@@ -1,11 +1,17 @@
 import React from "react";
-import { SafeAreaView } from "react-native";
+import { View, StyleSheet } from "react-native";
 import AppView from "./Views/AppView";
 
 export default function App() {
   return (
-    <SafeAreaView style={{ flex: 1 }}>
+    <View style={styles.container}>
       <AppView />
-    </SafeAreaView>
+    </View>
   );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
+});
